@@ -1,0 +1,18 @@
+import ch6_tp1_modularite as geo
+t1 = geo.Triangle(3,4)
+c1 = geo.Carre(3)
+r1 = geo.Rectangle(3,4)
+d1 = geo.Disque(3)
+p1 = geo.Parallelogramme(3,4)
+
+print(f"L'aire du Triangle t1 est : {geo.aires(t1)}")
+print(f"L'aire du Carre c1 est : {geo.aires(c1)}")
+print(f"L'aire du Rectangle r1 est : {geo.aires(r1)}")
+print(f"L'aire du Disque d1 est : {geo.aires(d1)}")
+print(f"L'aire du Parallelogramme p1 est : {geo.aires(p1)}")
+print()
+print(f"Le périmètre du Triangle t1 est : {geo.perimetres(t1)}")
+print(f"Le périmètre du Carre c1 est : {geo.perimetres(c1)}")
+print(f"Le périmètre du Rectangle r1 est : {geo.perimetres(r1)}")
+print(f"Le périmètre du Disque d1 est : {geo.perimetres(d1)}")
+print(f"Le périmètre du Parallelogramme p1 est : {geo.perimetres(p1)}")
