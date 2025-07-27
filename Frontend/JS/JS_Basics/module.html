@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Ma page web</title>
+        <style>
+            body{background-color: #111; color: #e2a93f; margin: auto; width: 800px;}
+            h1 {color: #af8943; text-align: center;}
+        </style>
+    </head>
+
+    <body>
+        <h1>Javascript</h1>
+        <!--<script src="module.js"></script>-->
+        <script type="module">
+            // import {sum as somme, default as hello} from "./module.js"
+            import * as A from "./module.js"
+            import hello from "./module.js"
+
+            console.log(A.sum([12,23,19]));
+            console.log(hello());
+        </script>
+    </body>
+
+</html>
