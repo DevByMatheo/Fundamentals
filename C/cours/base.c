@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 #define TAILLE_TAB 5
 
@@ -29,9 +30,19 @@ void afficher_tableau(int tab[], int taille);
 int *creer_tableau(void);
 void inverser_nombre(int *pt_nb1, int *pt_nb2);
 int pointeurs(void);
+int chaine(void);
+int base(void);
 
 // ==== 🧪 FONCTION MAIN ====
+
 int main(void)
+{
+    chaine();
+    return 0;
+}
+
+
+int base(void)
 {
     // ==== 🧱 Déclarations de base ====
     int aire_carre = 0;
@@ -197,6 +208,51 @@ int pointeurs(void)
     printf("AVANT : A = %d et B = %d\n", nombreA, nombreB);
     inverser_nombre(&nombreA, &nombreB);
     printf("APRES : A = %d et B = %d\n", nombreA, nombreB);
+
+    return 0;
+}
+
+
+
+int chaine(void)
+{
+    char texte[] = "Bonjour tout le monde ! "; // Chaîne initiale (finie par '\0')
+    char stockage[256];                        // Zone de stockage temporaire
+    char prenom[26];                           // Max 25 caractères + '\0'
+
+    // strlen() → longueur de la chaîne (sans '\0')
+    printf("Taille -> %d\n", strlen(texte));
+
+    // Lecture sécurisée d’un prénom (limite à 25 caractères)
+    printf("Prenom ? ");
+    scanf("%s", prenom);
+    printf("Ton prenom : %s\n", prenom);
+
+    // strcpy(dest, src) → copie complète
+    strcpy(stockage, prenom);
+    strcpy(stockage, "Toto"); // Remplace par "Toto"
+
+    // strcmp(a, b) → compare (0 = égal, <0 = a<b, >0 = a>b)
+    int test = strcmp(prenom, stockage);
+    if (test == 0) printf("Identiques\n");
+    else if (test < 0) printf("%s < %s\n", prenom, stockage);
+    else printf("%s < %s\n", stockage, prenom);
+
+    // strcat(dest, src) → ajoute src à la fin de dest (⚠ dest assez grand)
+    strcat(texte, prenom);
+    printf("%s\n", texte);
+
+    // strstr(str, sub) → pointeur sur la 1ère occurrence, ou NULL
+    if (strstr(texte, "Bonjour"))
+        printf("Trouvé !\n");
+
+    // strchr(str, c) → pointeur sur le 1er caractère trouvé, ou NULL
+    char *p = strchr(texte, 't');
+    if (p) printf("%s\n", p); // Affiche à partir du 't'
+
+    // sprintf(dest, "format", ...) → écrit formaté dans dest
+    sprintf(stockage, "Coucou");
+    printf("%s\n", stockage);
 
     return 0;
 }
